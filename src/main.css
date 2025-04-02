@@ -1,0 +1,46 @@
+body {
+    font-size: 15px;
+    font-family: "JetBrainsMono NF";
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+    padding: 2px;
+    border: 1px solid black;
+}
+
+.square:hover {
+    background-color: lightcyan;
+}
+
+.container {
+    display: grid;
+    /* grid-template-columns: repeat(3, 300px); */
+    /* grid-template-columns: repeat(auto-fit, auto-fit)); */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    grid-auto-rows: auto;
+    grid-gap: 50px;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+}
+
+.game-status {
+    border: 1px solid cyan;
+    text-align: center;
+    padding: 2px;
+}
+
+.game-history {
+    padding: 2px;
+    border: 1px solid cyan;
+    text-align: center;
+}
