@@ -40,9 +40,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-function Board() {
-  const [squares, setSquares] = useState(Array(9).fill(null));
-  const [xIsNext, setXIsNext] = useState(true);
+function Board({ xIsNext, squares, onPlay, moves }) {
   const [isCompleted, setIsCompleted] = useState(false);
 
   function handleClick(i) {
@@ -63,8 +61,8 @@ function Board() {
       nextSquares[i] = "X";
     }
 
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    // setSquares(nextSquares);
+    onPlay(nextSquares);
 
     if (calculateWinner(nextSquares) || calculateDraw(nextSquares)) {
       setIsCompleted(true);
@@ -114,6 +112,7 @@ function Board() {
         </div>
         <div className="game-history">
           <h3>History</h3>
+          <p>{moves}</p>
         </div>
       </div>
     </>

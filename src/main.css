@@ -46,6 +46,23 @@ body {
     text-align: center;
 }
 
+li {
+    list-style-type: none;
+}
+
+li > button {
+    justify-self: center;
+    width: 200px;
+    padding: 1px;
+    margin: 1px;
+
+    border: 1px solid gray;
+}
+
+li > button:hover {
+    background-color: lightcyan;
+}
+
 @media (max-width: 1000px) {
     /* Adjust breakpoint as needed */
     .container {
