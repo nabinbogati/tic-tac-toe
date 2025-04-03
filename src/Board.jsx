@@ -112,7 +112,9 @@ function Board() {
           <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
           <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
         </div>
-        <div className="game-history">History</div>
+        <div className="game-history">
+          <h3>History</h3>
+        </div>
       </div>
     </>
   );
