@@ -22,8 +22,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
     grid-auto-rows: auto;
     grid-gap: 50px;
-    justify-content: center;
-    align-content: center;
+    place-content: center;
     height: 100vh;
 }
 
@@ -36,11 +35,21 @@ body {
 .game-status {
     border: 1px solid cyan;
     text-align: center;
+    width: 300px;
     padding: 2px;
 }
 
 .game-history {
+    width: 300px;
     padding: 2px;
     border: 1px solid cyan;
     text-align: center;
+}
+
+@media (max-width: 1000px) {
+    /* Adjust breakpoint as needed */
+    .container {
+        grid-template-columns: 1fr; /* One column forces stacking */
+        place-self: center;
+    }
 }
