@@ -1,5 +1,37 @@
 import { useState } from "react";
 
+function calculateDraw(squares) {
+  for (let square of squares) {
+    if (!square) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function calculateWinner(squares) {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    console.log(squares);
+
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+}
+
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -11,8 +43,14 @@ function Square({ value, onSquareClick }) {
 function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
   const [xIsNext, setXIsNext] = useState(true);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   function handleClick(i) {
+    if (isCompleted) {
+      alert("[Game Completed] !! Click `OK` to Restart !!");
+      window.location.reload();
+    }
+
     if (squares[i]) {
       return;
     }
@@ -27,12 +65,42 @@ function Board() {
 
     setSquares(nextSquares);
     setXIsNext(!xIsNext);
+
+    if (calculateWinner(nextSquares) || calculateDraw(nextSquares)) {
+      setIsCompleted(true);
+    }
+  }
+
+  const winner = calculateWinner(squares);
+  let status = null;
+
+  if (winner) {
+    status = (
+      <div>
+        <h3>Status</h3>
+        <p>The winner is: {winner}</p>
+      </div>
+    );
+  } else if (calculateDraw(squares)) {
+    status = (
+      <div>
+        <h3>Status</h3>
+        <p>It's Draw</p>
+      </div>
+    );
+  } else {
+    status = (
+      <div>
+        <h3>Status</h3>
+        <p>Next player is: {xIsNext ? "X" : "O"}</p>
+      </div>
+    );
   }
 
   return (
     <>
       <div className="container">
-        <div className="game-status">Status</div>
+        <div className="game-status">{status}</div>
         <div className="button-container">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
           <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
