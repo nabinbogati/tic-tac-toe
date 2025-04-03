@@ -64,7 +64,11 @@ function Board({ xIsNext, squares, onPlay, moves }) {
     // setSquares(nextSquares);
     onPlay(nextSquares);
 
-    if (calculateWinner(nextSquares) || calculateDraw(nextSquares)) {
+    if (
+      calculateWinner(nextSquares) ||
+      calculateDraw(nextSquares) ||
+      moves == 9
+    ) {
       setIsCompleted(true);
     }
   }
