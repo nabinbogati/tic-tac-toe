@@ -28,6 +28,13 @@ body {
     height: 100vh;
 }
 
+.game-container {
+    display: grid;
+    grid-template-columns: 300px 300px 300px;
+    grid-auto-rows: auto;
+    grid-gap: 20px;
+}
+
 .button-container {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -51,9 +58,11 @@ body {
 .about-me {
     border: 1px solid cyan;
     text-align: center;
-    width: 300px;
+    width: 900px;
     padding: 2px;
-    justify-self: center;
+    margin: 20px;
+
+    justify-content: center;
 }
 
 li {
@@ -75,7 +84,19 @@ li > button:hover {
 @media (max-width: 1000px) {
     /* Adjust breakpoint as needed */
     .container {
-        grid-template-columns: 500px; /* one column forces stacking */
+        grid-template-columns: 300px; /* one column forces stacking */
+        place-self: center;
+    }
+
+    .game-container {
+        grid-template-columns: 300px; /* one column forces stacking */
+        place-self: center;
+    }
+
+    .about-me,
+    .game-title {
+        grid-template-columns: 300px;
+        width: 300px; /* one column forces stacking */
         place-self: center;
     }
 }

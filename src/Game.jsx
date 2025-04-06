@@ -43,7 +43,6 @@ function Game() {
         onPlay={handlePlay}
         moves={moves}
       />
-      ;
     </>
   );
 }
