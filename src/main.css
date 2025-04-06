@@ -1,8 +1,7 @@
 body {
     font-size: 15px;
     font-family: "JetBrainsMono NF";
-    background-color: lightcoral;
-    opacity: 1;
+    background-color: lightcyan;
 }
 
 .square {
@@ -10,11 +9,11 @@ body {
     height: 100px;
     font-size: 20px;
     padding: 2px;
-    border: 1px solid black;
+    border: 1px solid;
 }
 
 .square:hover {
-    background-color: lightcyan;
+    background-color: #d29f80;
 }
 
 .container {
@@ -33,6 +32,7 @@ body {
     grid-template-columns: 300px 300px 300px;
     grid-auto-rows: auto;
     grid-gap: 20px;
+    justify-self: center;
 }
 
 .button-container {
@@ -43,7 +43,7 @@ body {
 }
 
 .status {
-    border: 1px solid cyan;
+    border: 1px solid lightcoral;
     text-align: center;
     width: 300px;
     padding: 2px;
@@ -56,13 +56,12 @@ body {
 
 .game-title,
 .about-me {
-    border: 1px solid cyan;
+    border: 3px solid lightcoral;
     text-align: center;
     width: 900px;
-    padding: 2px;
+    padding: 20px;
     margin: 20px;
-
-    justify-content: center;
+    justify-self: center;
 }
 
 li {
@@ -74,11 +73,11 @@ li > button {
     width: 200px;
     padding: 1px;
     margin: 1px;
-    border: 1px solid gray;
+    border: 1px solid lightcoral;
 }
 
 li > button:hover {
-    background-color: lightcyan;
+    background-color: lightgreen;
 }
 
 @media (max-width: 1000px) {
