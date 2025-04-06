@@ -1,6 +1,8 @@
 body {
     font-size: 15px;
     font-family: "JetBrainsMono NF";
+    background-color: lightcoral;
+    opacity: 1;
 }
 
 .square {
@@ -17,12 +19,12 @@ body {
 
 .container {
     display: grid;
-    /* grid-template-columns: repeat(3, 300px); */
-    /* grid-template-columns: repeat(auto-fit, auto-fit)); */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 900px));
     grid-auto-rows: auto;
-    grid-gap: 50px;
     place-content: center;
+    margin: 50px;
+    padding: 20px;
+    grid-gap: 20px;
     height: 100vh;
 }
 
@@ -30,20 +32,28 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-template-rows: repeat(3, 100px);
+    justify-self: center;
 }
 
-.game-status {
+.status {
     border: 1px solid cyan;
     text-align: center;
     width: 300px;
     padding: 2px;
+    justify-self: center;
 }
 
 .game-history {
-    width: 300px;
-    padding: 2px;
+    height: 300px;
+}
+
+.game-title,
+.about-me {
     border: 1px solid cyan;
     text-align: center;
+    width: 300px;
+    padding: 2px;
+    justify-self: center;
 }
 
 li {
@@ -55,7 +65,6 @@ li > button {
     width: 200px;
     padding: 1px;
     margin: 1px;
-
     border: 1px solid gray;
 }
 
@@ -66,7 +75,7 @@ li > button:hover {
 @media (max-width: 1000px) {
     /* Adjust breakpoint as needed */
     .container {
-        grid-template-columns: 1fr; /* One column forces stacking */
+        grid-template-columns: 500px; /* one column forces stacking */
         place-self: center;
     }
 }

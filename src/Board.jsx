@@ -102,7 +102,10 @@ function Board({ xIsNext, squares, onPlay, moves }) {
   return (
     <>
       <div className="container">
-        <div className="game-status">{status}</div>
+        <div className="game-title">
+          <h3>Tic-Tac-Toe [ Made with ReactJS ]</h3>
+        </div>
+        <div className="game-status status">{status}</div>
         <div className="button-container">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
           <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -114,9 +117,16 @@ function Board({ xIsNext, squares, onPlay, moves }) {
           <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
           <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
         </div>
-        <div className="game-history">
+        <div className="game-history status">
           <h3>History</h3>
           <p>{moves}</p>
+        </div>
+        <div className="about-me">
+          <h3> 🚀 About Me </h3>
+          <p>
+            Software developer from Nepal with a focus on building innovative,
+            efficient and scalable solutions.
+          </p>
         </div>
       </div>
     </>
