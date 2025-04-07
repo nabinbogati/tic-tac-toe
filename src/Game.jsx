@@ -6,6 +6,7 @@ function Game() {
   const [currentMove, setCurrentMove] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);
   const currentSquares = history[currentMove];
+  const [isCompleted, setIsCompleted] = useState(false);
 
   const moves = history.map((squares, move) => {
     let description;
@@ -31,6 +32,9 @@ function Game() {
   }
 
   function jumpTo(nextMove) {
+    if (isCompleted) {
+      return;
+    }
     setCurrentMove(nextMove);
     setXIsNext(nextMove % 2 === 0);
   }
@@ -42,6 +46,8 @@ function Game() {
         squares={currentSquares}
         onPlay={handlePlay}
         moves={moves}
+        isCompleted={isCompleted}
+        setIsCompleted={setIsCompleted}
       />
     </>
   );

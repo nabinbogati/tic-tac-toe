@@ -52,11 +52,17 @@ function onPlayAgain() {
   window.location.reload();
 }
 
-function Board({ xIsNext, squares, onPlay, moves }) {
-  const [isCompleted, setIsCompleted] = useState(false);
-
+function Board({
+  xIsNext,
+  squares,
+  onPlay,
+  moves,
+  isCompleted,
+  setIsCompleted,
+}) {
   function handleClick(i) {
     if (isCompleted) {
+      return;
     }
 
     if (squares[i]) {
