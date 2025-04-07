@@ -32,9 +32,9 @@ function Game() {
   }
 
   function jumpTo(nextMove) {
-    if (isCompleted) {
-      return;
-    }
+    // if (isCompleted) {
+    //   return;
+    // }
     setCurrentMove(nextMove);
     setXIsNext(nextMove % 2 === 0);
   }
