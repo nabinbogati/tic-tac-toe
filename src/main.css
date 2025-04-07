@@ -1,19 +1,24 @@
 body {
     font-size: 15px;
-    font-family: "JetBrainsMono NF";
+    font-family: "Poppins", sans-serif;
     background-color: lightcyan;
 }
 
 .square {
     width: 100px;
     height: 100px;
-    font-size: 20px;
+    font-size: 48px;
+    font-weight: bold;
     padding: 2px;
-    border: 1px solid;
+    border: none;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: 1px solid black;
 }
 
 .square:hover {
-    background-color: #d29f80;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -42,11 +47,14 @@ body {
 }
 
 .status {
-    border: 1px solid lightcoral;
     text-align: center;
     width: 300px;
     padding: 2px;
     justify-self: center;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.1);
 }
 
 .game-history {
@@ -55,12 +63,54 @@ body {
 
 .game-title,
 .about-me {
-    border: 3px solid lightcoral;
+    border: none;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 900px;
     padding: 20px;
     margin: 20px;
     justify-self: center;
+    font-size: 32px; /* Larger title */
+    font-weight: 700;
+    color: #37474f;
+}
+
+.completed {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    height: 50px;
+    margin: 50px;
+    padding: 10px;
+    justify-self: center;
+    font-weight: 700;
+    color: #37474f;
+}
+
+.completed:hover {
+    background-color: lightgreen;
+}
+
+@keyframes scalePulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.completed {
+    animation: scalePulse 1s infinite;
+    transition: transform 0.2s ease-in-out;
+}
+
+p {
+    font-size: 15px;
 }
 
 li {
@@ -72,7 +122,14 @@ li > button {
     width: 200px;
     padding: 1px;
     margin: 1px;
-    border: 1px solid lightcoral;
+    background-color: #ffd54f;
+    color: #00000;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
 }
 
 li > button:hover {

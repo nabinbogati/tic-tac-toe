@@ -40,13 +40,23 @@ function Square({ value, onSquareClick }) {
   );
 }
 
+function PlayButton() {
+  return (
+    <button className="completed" onClick={() => onPlayAgain()}>
+      Play Again
+    </button>
+  );
+}
+
+function onPlayAgain() {
+  window.location.reload();
+}
+
 function Board({ xIsNext, squares, onPlay, moves }) {
   const [isCompleted, setIsCompleted] = useState(false);
 
   function handleClick(i) {
     if (isCompleted) {
-      alert("[Game Completed] !! Click `OK` to Restart !!");
-      window.location.reload();
     }
 
     if (squares[i]) {
@@ -103,10 +113,14 @@ function Board({ xIsNext, squares, onPlay, moves }) {
     <>
       <div className="container">
         <div className="game-title">
-          <h3>Tic-Tac-Toe [ Made with ReactJS ]</h3>
+          <h3>Tic-Tac-Toe</h3>
+          <p>React JS</p>
         </div>
         <div className="game-container">
-          <div className="game-status status">{status}</div>
+          <div className="game-status status">
+            {status}
+            {isCompleted && <PlayButton />}
+          </div>
           <div className="button-container">
             <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
             <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
